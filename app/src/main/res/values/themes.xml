@@ -2,7 +2,8 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.Class24Band7" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+         <item name="colorPrimary">@color/colorPrimary</item>
+
     </style>
 
     <style name="Theme.Class24Band7" parent="Base.Theme.Class24Band7" />
