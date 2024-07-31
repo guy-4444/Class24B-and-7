@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.annotation.NonNull;
@@ -58,7 +59,24 @@ public class Activity_Login extends AppCompatActivity {
 
 
         validateLogin();
+        removeFavoriteGameToUser("G02");
+        addFavoriteGameToUser("G04");
+        addPurchaseGameToUser("G05");
 
+
+        MyDbManager.isGamePurchasedByUser("G01", new MyDbManager.CallBack<Boolean>() {
+            @Override
+            public void res(Boolean res) {
+                if (res);
+            }
+        });
+
+        MyDbManager.getUserName("123456789", new MyDbManager.CallBack<String>() {
+            @Override
+            public void res(String res) {
+                Toast.makeText(Activity_Login.this, "Hi " + res, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void login() {
@@ -145,7 +163,24 @@ public class Activity_Login extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference usersRef = database.getReference("users");
 
-        usersRef.child(userUid).child("favorites").setValue()
+        usersRef.child(userUid).child("favorites").child(gameId).setValue(1);
+    }
 
+    public static void removeFavoriteGameToUser(String gameId) {
+        String userUid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference usersRef = database.getReference("users");
+
+        usersRef.child(userUid).child("favorites").child(gameId).removeValue();
+    }
+
+    public static void addPurchaseGameToUser(String gameId) {
+        String userUid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference usersRef = database.getReference("users");
+
+        usersRef.child(userUid).child("purchased").child(gameId).setValue(1);
     }
 }

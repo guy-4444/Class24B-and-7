@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/profile_IMG_avatar"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="32dp"
+        app:shapeAppearanceOverlay="@style/circleImageView"
+        android:elevation="12dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/img_user_avater2" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/profile_BTN_editImage"
+        style="@style/Widget.Material3.Button.Icon"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:backgroundTint="#BBDEFB"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        app:icon="@drawable/ic_edit"
+        app:iconGravity="textEnd"
+        app:iconSize="24dp"
+        android:elevation="13dp"
+        app:iconTint="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/profile_IMG_avatar"
+        app:layout_constraintEnd_toEndOf="@+id/profile_IMG_avatar"
+        app:layout_constraintStart_toEndOf="@+id/profile_IMG_avatar"
+        app:layout_constraintTop_toBottomOf="@+id/profile_IMG_avatar"
+        app:rippleColor="#80808080" />
+
+    <TextView
+        android:id="@+id/profile_LBL_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Hello World!"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_IMG_avatar" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

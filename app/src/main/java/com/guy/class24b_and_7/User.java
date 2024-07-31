@@ -1,14 +1,16 @@
 package com.guy.class24b_and_7;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class User {
 
     private String id;
     private String name;
     private String email;
-    private ArrayList<String> purchased = new ArrayList<>();
-    private ArrayList<String> favorites = new ArrayList<>();
+    private String image;
+    private HashMap<String, Integer> purchased = new HashMap<>();
+    private HashMap<String, Integer> favorites = new HashMap<>();
 
     public User() {}
 
@@ -34,6 +36,14 @@ public class User {
         return this;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -43,31 +53,30 @@ public class User {
         return this;
     }
 
-    public ArrayList<String> getFavorites() {
-        return favorites;
-    }
-
-    public User setFavorites(ArrayList<String> favorites) {
-        this.favorites = favorites;
-        return this;
-    }
-
-    public User addFavorite(String gameId) {
-        this.favorites.add(gameId);
-        return this;
-    }
-
-    public ArrayList<String> getPurchased() {
+    public HashMap<String, Integer> getPurchased() {
         return purchased;
     }
 
-    public User setPurchased(ArrayList<String> purchased) {
+    public void setPurchased(HashMap<String, Integer> purchased) {
         this.purchased = purchased;
+    }
+
+    public HashMap<String, Integer> getFavorites() {
+        return favorites;
+    }
+
+    public void setFavorites(HashMap<String, Integer> favorites) {
+        this.favorites = favorites;
+    }
+
+    public User addFavorite(String gameId) {
+        this.favorites.put(gameId, 1);
         return this;
     }
 
+
     public User addPurchase(String gameId) {
-        this.purchased.add(gameId);
+        this.purchased.put(gameId, 1);
         return this;
     }
 }
